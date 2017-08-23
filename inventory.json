@@ -1,0 +1,26 @@
+{
+  "ccakes": [
+    {
+      "image": "cc1.jpg",
+      "purchased": false,
+      "description": "Marshmallow sweet roll ice cream gummi bears chocolate chocolate cake.",
+      "kind": "Vanilla",
+      "flavor": "Cream",
+      "price": "12/dozen"
+    },{
+      "image": "cc2.jpg",
+      "description": "Sweet roll marzipan halvah ice cream cupcake tiramisu danish cotton candy cake.",
+      "purchased": false,
+      "kind": "Lemon",
+      "flavor": "Strawberry",
+      "price": "5.00/six"
+    },{
+      "image": "cc3.jpg",
+      "description": "Chupa chups gummi chocolate tiramisu bonbon caramels toffee marzipan soufflé.",
+      "purchased": true,
+      "kind": "Chocolate",
+      "flavor": "Chocolate",
+      "price": "1.00/each"
+    }
+  ]
+}
