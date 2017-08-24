@@ -18,13 +18,13 @@ var card = {
    					  <p><a href="#">This is a link</a></p>
    					</div>
    					<div class="card-reveal" id=reveal${thisMovie.movieID}>
-   					  <span class="card-title grey-text text-darken-4">${thisMovie.title}<i class="material-icons right">close</i></span>
+   					  <span class="card-title grey-text text-darken-4">Overview<i class="material-icons right">close</i></span>
    					  <p>${thisMovie.overview}</p>
-              <h6>Cast</h6>
+              <span class="card-title grey-text text-darken-4">Cast</span>
               <p id=castReveal${thisMovie.movieID}></p>
    					</div>
    					<div class="card-action">
-   						<a href="#"><i class="material-icons" >add_circle</i></a>
+   						<a href="#" id=plus${thisMovie.movieID}><i class="material-icons" >add_circle</i></a>
    						<a href="#" id=watch${thisMovie.movieID}>Watched</a>
 
 							<div class="rating">
@@ -35,7 +35,7 @@ var card = {
    				  </div>`;
         $('.row').append(content);
         handler.moreInfo(thisMovie);
-        handler.markWatched(thisMovie);
+        handler.watchList(thisMovie);
      });
    }
 };
