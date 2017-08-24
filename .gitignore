@@ -6,3 +6,4 @@ css/main.css
 css/main.css.map
 .idea/*
 javascripts/fb-getter.js
+javascripts/firebaseCalls.js
