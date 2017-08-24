@@ -1,7 +1,7 @@
 "use strict";
 
 //install firebase into lib folder npm install firebase --save
-let firebase = require("./firebaseCalls"),
+let firebase = require('../lib/node_modules/firebase'),
 	 provider = new firebase.auth.GoogleAuthProvider(),
 	 currentUser = null;
 
@@ -19,8 +19,8 @@ firebase.auth().onAuthStateChanged((user) => {
 
 function logInGoogle() {
 	//all firebase functions return a promise!! Add a then when called
-	
-	return firebase.auth().signInWithPopup(provider); 
+
+	return firebase.auth().signInWithPopup(provider);
 }
 
 function logOut(){

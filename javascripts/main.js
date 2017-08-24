@@ -4,7 +4,10 @@ var fire = require('./firebaseCalls');
 var movie = require('./getMovies');
 var card = require('./cardCreation');
 var users = require('./users');
-var login = require('./login.js');
+var login = require('./login');
+
+console.log("stuf", fire, movie, card, users);
+
 
 var movieObject = {};
 fire.getDBRef();
