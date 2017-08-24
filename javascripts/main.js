@@ -5,16 +5,15 @@ var movie = require('./getMovies');
 var card = require('./cardCreation');
 var users = require('./users');
 var login = require('./login');
+var handlers = require('./handlers');
 
-console.log("stuf", fire, movie, card, users);
-
+fire.getDBRef();
+handlers.login();
 
 var movieObject = {};
-fire.getDBRef();
 var userInput = "Finding Nemo";
 movie.getSearch(userInput)
 .then((results) => {
-  console.log("results", results.length);
   for (var i = 0; i < results.length; i++) {
     let item = results[i];
     movieObject[i] = {
