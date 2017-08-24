@@ -3,6 +3,8 @@
 var fire = require('./firebaseCalls');
 var movie = require('./getMovies');
 var card = require('./cardCreation');
+var users = require('./users');
+var login = require('./login.js');
 var movieArr = [];
 // fire.getDBRef();
 var userInput = "Jack Reacher";
