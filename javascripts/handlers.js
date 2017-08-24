@@ -1,11 +1,12 @@
 'use strict';
 
 var movie = require('./getMovies');
+var fire = require('./firebaseCalls');
+
 
 var handlers = {
   moreInfo: function(item) {
     $(`#icon${item.movieID}`).on("click", (e) => {
-      console.log("movieID", item.movieID);
       movie.getCredits(item.movieID)
       .then((cast) => {
         $(`#castReveal${item.movieID}`).html('');
@@ -16,10 +17,13 @@ var handlers = {
     });
   },
 
-  markWatched: function(item) {
-    $(`#watch${item.movieID}`).on("click", (e) => {
+  watchList: function(item) {
+    console.log("item", item);
+    $(`#plus${item.movieID}`).on("click", (e) => {
       //if not in watchlist from firebase already
       //write in functionality later
+      // let uid = login.login();
+      fire.addToWatchList(item);
 
     });
   }

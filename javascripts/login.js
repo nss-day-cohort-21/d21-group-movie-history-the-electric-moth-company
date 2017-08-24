@@ -4,6 +4,7 @@ let user = require('./users');
 
 //***************************************************************
 // User login section. Should ideally be in its own module
+
 $("#auth-btn").click(function() {
   console.log("clicked auth");
   user.logInGoogle()
