@@ -26,6 +26,11 @@ var card = {
    					<div class="card-action">
    						<a href="#"><i class="material-icons" >add_circle</i></a>
    						<a href="#" id=watch${thisMovie.movieID}>Watched</a>
+
+							<div class="rating">
+									<span id="rating5">☆</span><span id="rating4">☆</span><span id="rating3">☆</span><span id="rating2">☆</span><span id="rating1">☆</span>
+							</div>
+
    					</div>
    				  </div>`;
         $('.row').append(content);
