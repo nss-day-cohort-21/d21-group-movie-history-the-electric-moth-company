@@ -17,7 +17,7 @@ movie.getSearch(userInput)
     movieInfo.id = item.id;
     movieInfo.rating = 0;
     movieInfo.watched = false;
-    console.log("movieInfo", movieInfo);
+    movieArr.push(movieInfo);
   });
   card.createCard(movieArr);
 });
