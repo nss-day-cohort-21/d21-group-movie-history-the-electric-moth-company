@@ -2,7 +2,7 @@
 
 var movie = require('./getMovies');
 var fire = require('./firebaseCalls');
-var login = require('./login');
+
 
 var handlers = {
   moreInfo: function(item) {
@@ -25,12 +25,6 @@ var handlers = {
       // let uid = login.login();
       fire.addToWatchList(item);
 
-    });
-  },
-
-  login: function() {
-    $("#auth-btn").on("click", function(e) {
-      login.login();
     });
   }
 };

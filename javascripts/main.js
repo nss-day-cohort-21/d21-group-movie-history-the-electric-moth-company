@@ -8,7 +8,6 @@ var login = require('./login');
 var handlers = require('./handlers');
 
 fire.getDBRef();
-handlers.login();
 
 var movieObject = {};
 var userInput = "Finding Nemo";
