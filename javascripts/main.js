@@ -3,21 +3,23 @@
 var fire = require('./firebaseCalls');
 var movie = require('./getMovies');
 var card = require('./cardCreation');
-var movieArr = [];
-// fire.getDBRef();
-var userInput = "Jack Reacher";
+var movieObject = {};
+fire.getDBRef();
+var userInput = "Finding Nemo";
 movie.getSearch(userInput)
 .then((results) => {
-  $(results).each((index, item) => {
-    let movieInfo = {};
-    movieInfo.title = item.title;
-    movieInfo.year = item.release_date;
-    movieInfo.poster = `http://image.tmdb.org/t/p/w342${item.poster_path}`;
-    movieInfo.overview = item.overview;
-    movieInfo.id = item.id;
-    movieInfo.rating = 0;
-    movieInfo.watched = false;
-    movieArr.push(movieInfo);
-  });
-  card.createCard(movieArr);
+  console.log("results", results.length);
+  for (var i = 0; i < results.length; i++) {
+    let item = results[i];
+    movieObject[i] = {
+      title: item.title,
+      year: item.release_date,
+      poster: `http://image.tmdb.org/t/p/w342${item.poster_path}`,
+      overview: item.overview,
+      movieID: item.id,
+      rating: 0,
+      watched: false
+    };
+  }
+  card.createCard(movieObject);
 });
