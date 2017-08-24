@@ -1,5 +1,15 @@
-.card{
-    width: 300px;
+.page-footer, .nav-wrapper{
+    background: black;
+}
+
+body{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+flex: 1 0 auto;
 }
 
 .is-hidden {
