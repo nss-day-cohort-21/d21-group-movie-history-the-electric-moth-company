@@ -5,6 +5,7 @@ var movie = require('./getMovies');
 var card = require('./cardCreation');
 var users = require('./users');
 var login = require('./login');
+var handlers = require('./handlers');
 
 console.log("stuf", fire, movie, card, users);
 
