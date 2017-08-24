@@ -4,6 +4,8 @@
 			<title>PUT TITLE HERE!</title>
 			<!-- STYLESHEETS -->
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+			<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+			
 			<link rel="stylesheet" type="text/css" href="css/main.css">
 			<!-- END STYLESHEETS -->
 		</head>
@@ -19,22 +21,35 @@
 	<div class="container">
 		<div class="row">
 			<div class="col s12 m7">
-				<div class="card">
-					<div class="card-image">
-						<img src="http://image.tmdb.org/t/p/w500/38bmEXmuJuInLs9dwfgOGCHmZ7l.jpg">
-						<span class="card-title">Card Title</span>
+				<div class="card sticky-action">
+					<div class="card-image waves-effect waves-block waves-light">
+					  <img class="activator" src="http://image.tmdb.org/t/p/w342/IfB9hy4JH1eH6HEfIgIGORXi5h.jpg">
 					</div>
 					<div class="card-content">
-						<p>I am a very simple card. I am good at containing small bits of information.
-						I am convenient because I require little markup to use effectively.</p>
+					  <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+					  <p><a href="#">This is a link</a></p>
+					</div>
+					<div class="card-reveal">
+					  <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+					  <p>Here is some more information about this product that is only revealed once clicked on.</p>
 					</div>
 					<div class="card-action">
-						<a href="#">This is a link</a>
-						<a href="#">This is a link</a>
+						<a href="#" ><i class="material-icons">add_circle</i></a>
+						<a href="#">Watched</a>
 					</div>
-				</div>
+				  </div>
+				  
 			</div>
 		</div>
+				  
+
+		<div class="card sticky-action">
+			...
+		
+			<div class="card-action">...</div>
+		
+			<div class="card-reveal">...</div>
+		  </div>
 
 	</div>
 	<!-- CONTAINER END -->
@@ -45,6 +60,8 @@
 
 <!-- SCRIPTS -->
 		<!-- JQUERY -->
+<!--Import jQuery before materialize.js-->
+
 		<script src="lib/node_modules/jquery/dist/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
 		<script src="dist/app.js"></script>
