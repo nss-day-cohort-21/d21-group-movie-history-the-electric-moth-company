@@ -7,13 +7,13 @@ let firebase = require('../lib/node_modules/firebase'),
 
 //listen for changed state
 firebase.auth().onAuthStateChanged((user) => {
-	console.log("onAuthStateChanged", user);
+	// console.log("onAuthStateChanged", user);
 	if (user){
 		currentUser = user.uid;
-		console.log("current user Logged in?", currentUser);
+		// console.log("current user Logged in?", currentUser);
 	}else {
 		currentUser = null;
-		console.log("current user NOT logged in:", currentUser);
+		// console.log("current user NOT logged in:", currentUser);
 	}
 });
 
