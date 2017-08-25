@@ -41,28 +41,28 @@ var handlers = {
     });
   },
 
-  markWatched: function(item) {
-    $(`#watch${item.movieID}`).on("click", (e) => {
-      e.preventDefault();
-      fire.returnWatchList()
-      .then((watchList) => {
-        let uglyID;
-        let watchListKeys = Object.keys(watchList);
-        $(watchListKeys).each((windex, witem) => {
-          let thisMovie = watchList[witem];
-          if (thisMovie.movieID === item.movieID) {
-            uglyID = watchListKeys[windex];
-          }
-        });
-        if (uglyID === undefined) {
-          item.watched = true;
-          fire.addToWatchList(item);
-        } else {
-          fire.markWatched(uglyID);
-        }
-      });
-    });
-  },
+  // markWatched: function(item) {
+  //   $(`#watch${item.movieID}`).on("click", (e) => {
+  //     e.preventDefault();
+  //     fire.returnWatchList()
+  //     .then((watchList) => {
+  //       let uglyID;
+  //       let watchListKeys = Object.keys(watchList);
+  //       $(watchListKeys).each((windex, witem) => {
+  //         let thisMovie = watchList[witem];
+  //         if (thisMovie.movieID === item.movieID) {
+  //           uglyID = watchListKeys[windex];
+  //         }
+  //       });
+  //       if (uglyID === undefined) {
+  //         item.watched = true;
+  //         fire.addToWatchList(item);
+  //       } else {
+  //         fire.markWatched(uglyID);
+  //       }
+  //     });
+  //   });
+  // },
 
   rateMovie: function(item, rating){
       fire.returnWatchList()

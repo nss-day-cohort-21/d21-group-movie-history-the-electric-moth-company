@@ -10,6 +10,8 @@ var userView = require('./userView.js');
 
 var movieObject = {};
 
+users.logOut();
+
 $("#search").on('keyup', function (pushEnter) {
   if (pushEnter.which === 13) {
     $('#searchView').html('');
