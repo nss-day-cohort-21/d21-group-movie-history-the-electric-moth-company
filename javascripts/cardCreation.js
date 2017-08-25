@@ -32,10 +32,10 @@ var card = {
               <p id=castReveal${thisMovie.movieID}></p>
                        </div>
                        <div class="card-action">
-                           <a href="#" id=plus${thisMovie.movieID}><i class="material-icons" >add_circle</i></a>
+                           <a href="#" id=plus${thisMovie.movieID}><i class="material-icons">add_circle</i></a>
                            <a href="#" id=watch${thisMovie.movieID}>Watched</a>
                        </div>
-                        <div id=rateYo${index} class=rateYo></div>
+                        <div id=rateYo${index} class=rateYo onclick="Materialize.toast('I am a toast', 4000)"></div>
           </div>
                </div>`;
 

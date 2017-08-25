@@ -64,10 +64,7 @@ var handlers = {
     });
   },
 
-<<<<<<< HEAD
   ///submits rating to FB
-=======
->>>>>>> master
   rateMovie: function(item, rating){
       fire.returnWatchList()
       .then((watchList) => {
