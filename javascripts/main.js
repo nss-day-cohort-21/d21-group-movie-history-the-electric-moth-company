@@ -45,7 +45,8 @@ $("#search").on('keyup', function (pushEnter) {
           };
         }
       }
-      card.createCard(movieObject);
+      $('#searchView').html('');
+      card.createCard(movieObject, true);
     });
     $("#search").val("");
   }
