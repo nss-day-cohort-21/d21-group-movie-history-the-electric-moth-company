@@ -7,10 +7,7 @@ var users = require('./users');
 var login = require('./login');
 var handlers = require('./handlers');
 
-console.log("stuf", fire, movie, card, users);
-
 var movieObject = {};
-fire.getDBRef();
 
 $("#search").on('keyup', function (pushEnter) {
   if (pushEnter.which === 13) {
