@@ -12,6 +12,7 @@ main {
 flex: 1 0 auto;
 }
 
+//using this on home page also
 .is-hidden {
 	display: none;
 }
@@ -46,4 +47,20 @@ flex: 1 0 auto;
 .card-reveal {
   background: rgba(255, 255, 255, 0.85) !important;
 }
+.container{
+  margin-top: 30px;
+}
 
+///////USER VIEW//////
+
+#search{
+  margin-right: 500px;
+}
+
+#my-movies{
+  padding-left: 180px;
+}
+
+#userview-content{
+  margin-top: 50px;
+}
