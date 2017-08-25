@@ -2,9 +2,13 @@
 
 var movie = require('./getMovies');
 var fire = require('./firebaseCalls');
+<<<<<<< HEAD
 var card = require('./cardCreation');
+=======
+var MovieRate = require('./cardCreation.js');
+>>>>>>> master
 
-
+ 
 var handlers = {
   moreInfo: function(item) {
     $(`.icon${item.movieID}`).on("click", (e) => {
@@ -62,16 +66,26 @@ var handlers = {
       });
     });
   },
+<<<<<<< HEAD
 
   rateMovie: function(item, rating){
       fire.returnWatchList()
       .then((watchList) => {
+=======
+  rateMovie: function(item, rating){
+      fire.returnWatchList()
+      .then((watchList) => {
+        console.log("item", item);
+>>>>>>> master
         let uglyID;
         let watchListKeys = Object.keys(watchList);
         $(watchListKeys).each((windex, witem) => {
           let thisMovie = watchList[witem];
           if (thisMovie.movieID === item.movieID){
+<<<<<<< HEAD
             console.log("in your watchlis already");
+=======
+>>>>>>> master
             uglyID = watchListKeys[windex];
           }
         });
@@ -83,6 +97,7 @@ var handlers = {
           fire.rateMovie(uglyID, rating);
         }
       });
+<<<<<<< HEAD
   },
 
   toggle: function(item) {
@@ -100,6 +115,8 @@ var handlers = {
       });
       card.createCard(moviesToDisplay);
     });
+=======
+>>>>>>> master
   }
 };
 
