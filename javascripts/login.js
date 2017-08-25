@@ -14,6 +14,7 @@ $("#auth-btn").click(function() {
     user.setUser(result.user.uid);
     $("#auth-btn").addClass("is-hidden");
     $("#logout").removeClass("is-hidden");
+    $('#my-movies').show();
   });
 });
 

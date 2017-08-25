@@ -13,10 +13,14 @@ var userView = require('./userView.js');
 var movieObject = {};
 
 ///-------User interaction with search on enter----------///
+users.logOut();
+
 $("#search").on('keyup', function (pushEnter) {
   if (pushEnter.which === 13) {
+    $('#searchView').html('');
+    $('#userview-content').html('');
     $('.row').empty();
-    $("#userView").hide();
+    $("#userView-content").hide();
     $("#searchView").show();
     let userVal = $("#search").val();
     movie.getSearch(userVal)
@@ -45,7 +49,6 @@ $("#search").on('keyup', function (pushEnter) {
           };
         }
       }
-      $('#searchView').html('');
       card.createCard(movieObject, true);
     });
     $("#search").val("");

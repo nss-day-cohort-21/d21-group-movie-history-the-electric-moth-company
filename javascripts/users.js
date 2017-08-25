@@ -19,11 +19,11 @@ firebase.auth().onAuthStateChanged((user) => {
 
 function logInGoogle() {
 	//all firebase functions return a promise!! Add a then when called
-
 	return firebase.auth().signInWithPopup(provider);
 }
 
 function logOut(){
+	$('#my-movies').hide();
 	return firebase.auth().signOut();
 }
 function getUser(){

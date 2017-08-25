@@ -30,12 +30,11 @@ var card = {
                          <p>${thisMovie.overview}</p>
               <span class="card-title grey-text text-darken-4">Cast</span>
               <p id=castReveal${thisMovie.movieID}></p>
-                       </div>
-                       <div class="card-action">
-                           <a href="#" id=plus${thisMovie.movieID}><i class="material-icons">add_circle</i></a>
-                           <a href="#" id=watch${thisMovie.movieID}>Watched</a>
-                       </div>
-                        <div id=rateYo${index} class=rateYo onclick="Materialize.toast('I am a toast', 4000)"></div>
+   					</div>
+   					<div class="card-action">
+   						<a href="#" id=plus${thisMovie.movieID}><i class="material-icons" >add_circle</i></a>
+   					</div>
+						<div id=rateYo${index} class=rateYo></div>
           </div>
                </div>`;
 
@@ -45,15 +44,13 @@ var card = {
           $('#userview-content').append(movieContent);
         }
         // $('.row').append(movieContent);
-
-						///function that creates the star rating///
-				///SEE README FOR MORE INFO////
-                $(function (content) {
-                    $(`#rateYo${index}`).rateYo({
-                        fullStar: true,
-                        numStars: 10
-                    })
-                     .on("rateyo.set", function (e, data) {
+				$(function (content) {
+					$(`#rateYo${index}`).rateYo({
+						fullStar: true,
+						numStars: 10,
+            rating: thisMovie.rating/2
+					})
+					 .on("rateyo.set", function (e, data) {
                   console.log("The rating is set to " + data.rating + "!");
                                     let rating = data.rating * 2;
                                     console.log("Movie Rating:", movieRating.rating);
@@ -62,7 +59,7 @@ var card = {
                     });
         handler.moreInfo(thisMovie);
         handler.watchList(thisMovie);
-        handler.markWatched(thisMovie);
+        // handler.markWatched(thisMovie);
 
     });
     }
