@@ -4,13 +4,17 @@ var movie = require('./getMovies');
 var handler = require('./handlers');
 var fire = require('./firebaseCalls');
 var movieRating = {};
+
+/*-------Card building function
+Used to build cards for search and user view---*/
+
 var card = {
    createCard: function(movies) {
      let cardMovieKeys = Object.keys(movies);
      $(cardMovieKeys).each((index, item) => {
        let thisMovie = movies[item];
        thisMovie.fbID = cardMovieKeys[index];
-       let content =
+       let movieContent =
        `<div class="col s4" id=card--${cardMovieKeys[index]}>
    				<div class="card sticky-action">
    					<div class="card-image waves-effect waves-block waves-light">
@@ -33,8 +37,9 @@ var card = {
 						<div id=rateYo${index}></div>
    				  </div>`;
 						 
-        $('.row').append(content);
-				
+        $('.row').append(movieContent);
+		
+				///function that creates the star rating///
 				$(function (content) {
 					$(`#rateYo${index}`).rateYo({
 						fullStar: true,
