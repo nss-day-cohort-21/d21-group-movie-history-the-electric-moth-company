@@ -13,5 +13,5 @@ $("#my-movies").on("click", function(){
         cardCreation.createCard(data);
         console.log(cardCreation);
         console.log(data);
-    // });
+    });
 });
