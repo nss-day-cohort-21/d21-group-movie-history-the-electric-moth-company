@@ -28,7 +28,7 @@ var card = {
    						<a href="#" id=plus${thisMovie.movieID}><i class="material-icons" >add_circle</i></a>
    						<a href="#" id=watch${thisMovie.movieID}>Watched</a>
               <div class="rating">
-									<span id="rating5">☆</span><span id="rating4">☆</span><span id="rating3">☆</span><span id="rating2">☆</span><span id="rating1">☆</span>
+									<span id="rating--5">☆</span><span id="rating--4">☆</span><span id="rating--3">☆</span><span id="rating--2">☆</span><span id="rating--1">☆</span>
 							</div>
    					</div>
    				  </div>`;

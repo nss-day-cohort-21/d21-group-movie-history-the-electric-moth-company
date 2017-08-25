@@ -48,7 +48,7 @@ var handlers = {
         let watchListKeys = Object.keys(watchList);
         $(watchListKeys).each((windex, witem) => {
           let thisMovie = watchList[witem];
-          if (thisMovie.movieID ===  item.movieID) {
+          if (thisMovie.movieID === item.movieID) {
             uglyID = watchListKeys[windex];
           }
         });
