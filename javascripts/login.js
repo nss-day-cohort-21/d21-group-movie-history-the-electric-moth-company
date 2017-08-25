@@ -1,6 +1,8 @@
 "use strict";
 
 let user = require('./users');
+let fire = require('./firebaseCalls');
+let card = require('./cardCreation');
 
 //***************************************************************
 // User login section. Should ideally be in its own module
@@ -14,7 +16,14 @@ $("#auth-btn").click(function() {
     user.setUser(result.user.uid);
     $("#auth-btn").addClass("is-hidden");
     $("#logout").removeClass("is-hidden");
-    $('#my-movies').show();
+    let userName = result.user.displayName;
+    userName = userName.slice(0, userName.indexOf(" "));
+    $('#my-movies').show().html(`${userName}'s Movies`);
+    fire.returnWatchList()
+    .then((data) => {
+      $('#userView').show();
+      card.createCard(data, false);
+    });
   });
 });
 
