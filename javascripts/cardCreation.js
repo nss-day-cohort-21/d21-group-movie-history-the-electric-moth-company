@@ -46,7 +46,8 @@ var card = {
 				$(function (content) {
 					$(`#rateYo${index}`).rateYo({
 						fullStar: true,
-						numStars: 10
+						numStars: 10,
+            rating: thisMovie.rating/2
 					})
 					 .on("rateyo.set", function (e, data) {
                   console.log("The rating is set to " + data.rating + "!");
@@ -62,11 +63,6 @@ var card = {
 	});
 	}
 };
-
-// getRating();
-function findRating() {
-	console.log("movieRating", movieRating.rating);
-}
 
 
 module.exports = card;
