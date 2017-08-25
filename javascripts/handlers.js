@@ -3,7 +3,7 @@
 var movie = require('./getMovies');
 var fire = require('./firebaseCalls');
 
-
+ 
 var handlers = {
   moreInfo: function(item) {
     $(`#icon${item.movieID}`).on("click", (e) => {
