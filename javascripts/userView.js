@@ -2,13 +2,16 @@
 
 console.log("User View.js, YO!");
 var fbCall = require('./firebaseCalls.js');
-var handler = require('./handlers');
+var cardCreation = require('./cardCreation.js');
 
 $("#my-movies").on("click", function(){
+    $('.row').empty();
     $("#userView").show();
     $("#searchView").hide();
     fbCall.returnWatchList()
-    .then((data) => {
-      handler.toggle(data);
+    .then(function(data){
+        cardCreation.createCard(data);
+        console.log(cardCreation);
+        console.log(data);
     });
 });

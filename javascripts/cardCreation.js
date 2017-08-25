@@ -6,6 +6,9 @@ var fire = require('./firebaseCalls');
 var movieRating = {};
 var card = {
    createCard: function(movies) {
+
+     console.log("movieSearch", movies);
+
      let cardMovieKeys = Object.keys(movies);
      $(cardMovieKeys).each((index, item) => {
        let thisMovie = movies[item];
@@ -18,7 +21,7 @@ var card = {
    					</div>
 
    					<div class="card-content">
-            <span class="card-title activator grey-text text-darken-4 icon${thisMovie.movieID} col s10">${thisMovie.title}</span>
+            <span class="card-title activator grey-text text-darken-4 icon${thisMovie.movieID} col s10 truncate">${thisMovie.title}</span>
             <i class="material-icons right icon${thisMovie.movieID} col s2 activator">more_vert</i>
    					</div>
    					<div class="card-reveal" id=reveal${thisMovie.movieID}>

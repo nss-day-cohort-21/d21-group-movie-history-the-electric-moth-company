@@ -2,17 +2,16 @@
 
 var movie = require('./getMovies');
 var fire = require('./firebaseCalls');
-var card = require('./cardCreation.js');
-console.log("card", card);
+
 
 
 
 var handlers = {
   moreInfo: function(item) {
     $(`.icon${item.movieID}`).on("click", (e) => {
-      if ($(`#castReveal${item.movieID}`).html() !== '') {
-
-      } else {
+      // if ($(`#castReveal${item.movieID}`).html() !== '') {
+      //
+      // } else {
         movie.getCredits(item.movieID)
         .then((cast) => {
           $(`#castReveal${item.movieID}`).html('');
@@ -20,7 +19,7 @@ var handlers = {
             $(`#castReveal${item.movieID}`).append(`${citem.name} | `);
           });
         });
-      }
+
     });
   },
 
@@ -92,7 +91,7 @@ var handlers = {
     $('.toggleButton').on("click", function(e) {
       console.log($('.toggleButton'));
       console.log("item", item);
-      console.log("card", card);
+      // console.log("card", card);
       let moviesToDisplay = {};
       let watchListKeys = Object.keys(item);
       $(watchListKeys).each((windex, witem) => {
@@ -102,7 +101,7 @@ var handlers = {
         }
 
       });
-      card.createCard(moviesToDisplay);
+      // card.createCard(moviesToDisplay);
     });
   }
 };
