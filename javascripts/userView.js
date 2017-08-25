@@ -10,7 +10,7 @@ $("#my-movies").on("click", function(){
     $("#searchView").hide();
     fbCall.returnWatchList()
     .then(function(data){
-        cardCreation.createCard(data);
+        cardCreation.createCard(data, false);
         console.log(cardCreation);
         console.log(data);
     });

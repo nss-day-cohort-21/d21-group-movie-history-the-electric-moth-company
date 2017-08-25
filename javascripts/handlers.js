@@ -2,9 +2,10 @@
 
 var movie = require('./getMovies');
 var fire = require('./firebaseCalls');
-var MovieRate = require('./cardCreation.js');
 
- 
+
+
+
 var handlers = {
   moreInfo: function(item) {
     $(`.icon${item.movieID}`).on("click", (e) => {
@@ -49,7 +50,7 @@ var handlers = {
         let watchListKeys = Object.keys(watchList);
         $(watchListKeys).each((windex, witem) => {
           let thisMovie = watchList[witem];
-          if (thisMovie.movieID ===  item.movieID) {
+          if (thisMovie.movieID === item.movieID) {
             uglyID = watchListKeys[windex];
           }
         });
@@ -57,15 +58,17 @@ var handlers = {
           item.watched = true;
           fire.addToWatchList(item);
         } else {
-          fire.markWatched(item, uglyID);
+          fire.markWatched(uglyID);
         }
       });
     });
   },
+
   rateMovie: function(item, rating){
       fire.returnWatchList()
       .then((watchList) => {
         console.log("item", item);
+
         let uglyID;
         let watchListKeys = Object.keys(watchList);
         $(watchListKeys).each((windex, witem) => {
@@ -82,6 +85,24 @@ var handlers = {
           fire.rateMovie(uglyID, rating);
         }
       });
+  },
+
+  toggle: function(item) {
+    $('.toggleButton').on("click", function(e) {
+      console.log($('.toggleButton'));
+      console.log("item", item);
+      // console.log("card", card);
+      let moviesToDisplay = {};
+      let watchListKeys = Object.keys(item);
+      $(watchListKeys).each((windex, witem) => {
+        let thisMovie = item[witem];
+        if ($(e.target).attr('id') === 'watchList' && thisMovie.watched === false) {
+          moviesToDisplay[windex] = thisMovie;
+        }
+
+      });
+      // card.createCard(moviesToDisplay);
+    });
   }
 };
 
