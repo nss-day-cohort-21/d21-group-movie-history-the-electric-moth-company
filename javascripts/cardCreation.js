@@ -2,6 +2,8 @@
 
 var movie = require('./getMovies');
 var handler = require('./handlers');
+var fire = require('./firebaseCalls');
+var movieRating = {};
 var card = {
    createCard: function(movies) {
      let cardMovieKeys = Object.keys(movies);
@@ -27,17 +29,36 @@ var card = {
    					<div class="card-action">
    						<a href="#" id=plus${thisMovie.movieID}><i class="material-icons" >add_circle</i></a>
    						<a href="#" id=watch${thisMovie.movieID}>Watched</a>
-              <div class="rating">
-									<span id="rating5">☆</span><span id="rating4">☆</span><span id="rating3">☆</span><span id="rating2">☆</span><span id="rating1">☆</span>
-							</div>
    					</div>
+						<div id=rateYo${index}></div>
    				  </div>`;
+						 
         $('.row').append(content);
+				
+				$(function (content) {
+					$(`#rateYo${index}`).rateYo({
+						fullStar: true,
+						numStars: 10
+					})
+					 .on("rateyo.set", function (e, data) {
+                  console.log("The rating is set to " + data.rating + "!");
+									let rating = data.rating * 2;
+									console.log("Movie Rating:", movieRating.rating);
+									handler.rateMovie(thisMovie, rating);
+              });
+					});
         handler.moreInfo(thisMovie);
         handler.watchList(thisMovie);
         handler.markWatched(thisMovie);
-     });
-   }
+				
+	});
+	}
 };
+
+// getRating();
+function findRating() {
+	console.log("movieRating", movieRating.rating);
+}
+				
 
 module.exports = card;
