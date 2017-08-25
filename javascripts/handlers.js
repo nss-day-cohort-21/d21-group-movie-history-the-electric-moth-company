@@ -9,9 +9,9 @@ var fire = require('./firebaseCalls');
 var handlers = {
   moreInfo: function(item) {
     $(`.icon${item.movieID}`).on("click", (e) => {
-      // if ($(`#castReveal${item.movieID}`).html() !== '') {
-      //
-      // } else {
+      if ($(`#castReveal${item.movieID}`).html() !== '') {
+
+      } else {
         movie.getCredits(item.movieID)
         .then((cast) => {
           $(`#castReveal${item.movieID}`).html('');
@@ -19,7 +19,7 @@ var handlers = {
             $(`#castReveal${item.movieID}`).append(`${citem.name} | `);
           });
         });
-
+      }
     });
   },
 

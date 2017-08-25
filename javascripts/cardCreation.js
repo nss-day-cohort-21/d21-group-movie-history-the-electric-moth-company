@@ -5,8 +5,7 @@ var handler = require('./handlers');
 var fire = require('./firebaseCalls');
 var movieRating = {};
 var card = {
-   createCard: function(movies) {
-
+   createCard: function(movies, status) {
      console.log("movieSearch", movies);
 
      let cardMovieKeys = Object.keys(movies);
@@ -21,8 +20,8 @@ var card = {
    					</div>
 
    					<div class="card-content">
-            <span class="card-title activator grey-text text-darken-4 icon${thisMovie.movieID} col s10 truncate">${thisMovie.title}</span>
-            <i class="material-icons right icon${thisMovie.movieID} col s2 activator">more_vert</i>
+              <span class="card-title activator grey-text text-darken-4 icon${thisMovie.movieID} col s10 truncate">${thisMovie.title}</span>
+              <i class="material-icons right icon${thisMovie.movieID} col s2 activator">more_vert</i>
    					</div>
    					<div class="card-reveal" id=reveal${thisMovie.movieID}>
    					  <span class="card-title grey-text text-darken-4">Overview<i class="material-icons right">close</i></span>
@@ -34,11 +33,16 @@ var card = {
    						<a href="#" id=plus${thisMovie.movieID}><i class="material-icons" >add_circle</i></a>
    						<a href="#" id=watch${thisMovie.movieID}>Watched</a>
    					</div>
-						<div id=rateYo${index}></div>
-   				  </div>`;
+						<div id=rateYo${index} class=rateYo></div>
+          </div>
+   			</div>`;
 
-        $('.row').append(movieContent);
-
+        if (status === true) {
+          $('#searchView').append(movieContent);
+        } else if (status === false) {
+          $('#userview-content').append(movieContent);
+        }
+        // $('.row').append(movieContent);
 				$(function (content) {
 					$(`#rateYo${index}`).rateYo({
 						fullStar: true,
