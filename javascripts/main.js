@@ -6,12 +6,15 @@ var card = require('./cardCreation');
 var users = require('./users');
 var login = require('./login');
 var handlers = require('./handlers');
+var userView = require('./userView.js');
 
 var movieObject = {};
 
 $("#search").on('keyup', function (pushEnter) {
   if (pushEnter.which === 13) {
     $('.row').empty();
+    $("#userView").hide();
+    $("#searchView").show();
     let userVal = $("#search").val();
     movie.getSearch(userVal)
     .then((results) => {

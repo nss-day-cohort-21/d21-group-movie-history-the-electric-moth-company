@@ -2,6 +2,7 @@
 
 var movie = require('./getMovies');
 var fire = require('./firebaseCalls');
+var card = require('./cardCreation');
 
 
 var handlers = {
@@ -59,6 +60,45 @@ var handlers = {
           fire.markWatched(uglyID);
         }
       });
+    });
+  },
+
+  rateMovie: function(item, rating){
+      fire.returnWatchList()
+      .then((watchList) => {
+        let uglyID;
+        let watchListKeys = Object.keys(watchList);
+        $(watchListKeys).each((windex, witem) => {
+          let thisMovie = watchList[witem];
+          if (thisMovie.movieID === item.movieID){
+            console.log("in your watchlis already");
+            uglyID = watchListKeys[windex];
+          }
+        });
+        if (uglyID === undefined) {
+          item.watched = true;
+          item.rating = rating;
+          fire.addToWatchList(item);
+        } else {
+          fire.rateMovie(uglyID, rating);
+        }
+      });
+  },
+
+  toggle: function(item) {
+    $('.toggleButton').on("click", function(e) {
+      console.log($('.toggleButton'));
+      console.log("item", item);
+      let moviesToDisplay = {};
+      let watchListKeys = Object.keys(item);
+      $(watchListKeys).each((windex, witem) => {
+        let thisMovie = item[witem];
+        if ($(e.target).attr('id') === 'watchList' && thisMovie.watched === false) {
+          moviesToDisplay[windex] = thisMovie;
+        }
+
+      });
+      card.createCard(moviesToDisplay);
     });
   }
 };

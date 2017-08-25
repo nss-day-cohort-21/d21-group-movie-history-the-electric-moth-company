@@ -5,6 +5,7 @@
 			<!-- STYLESHEETS -->
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
 			<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
 
 			<link rel="stylesheet" type="text/css" href="css/main.css">
 			<!-- END STYLESHEETS -->
@@ -14,30 +15,24 @@
 	<body>
 
 		<!-- NAVIGATION START -->
-		
+
 		<nav>
 				<div class="nav-wrapper">
-				  <a href="#!" class="brand-logo">Logo</a>
-				  <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+					<a href="#!" class="brand-logo">Logo</a>
 				  <ul class="right hide-on-med-and-down">
-					  <li><input id="search" type="search" placeholder="Search"></li>
+						<li><input id="search" type="search" placeholder="Search For Movies"></li>
+						<li><a href="#" id="my-movies">My Movies</a></li>
 						<li id="auth-btn"><a href="#" title="">Sign In</a></li>
 						<li id="logout" class="is-hidden"><a href="#" title="">Logout</a></li>
-				  </ul>
-				  <ul class="side-nav" id="mobile-demo">
-					<li><a href="sass.html">Sass</a></li>
-					<li><a href="badges.html">Components</a></li>
-					<li><a href="collapsible.html">Javascript</a></li>
-					<li><a href="mobile.html">Mobile</a></li>
 				  </ul>
 				</div>
 			  </nav>
 
-			
+
 			<div class="nav-wrapper">
 				<!-- <a href="#!" class="brand-logo center">Logo</a> -->
 				<ul id="nav-mobile" class="left nav__links">
-				
+
 				</ul>
 			</div>
 			<!-- <div class="nav-wrapper">
@@ -54,13 +49,28 @@
 <main>
 	<!-- CONTAINER START -->
 	<div class="container">
-		<div class="row">
+		<!-- BEGIN USER VIEW -->
+		<div id="userView" class="is-hidden">
+			<div class="userview-btns">
+				<a class="waves-effect waves-light btn toggleButton" id="untracked">Untracked</a>
+				<a class="waves-effect waves-light btn toggleButton" id="watchList">Watch List</a>
+				<a class="waves-effect waves-light btn toggleButton" id="watched">Watched</a>
+				<a class="waves-effect waves-light btn toggleButton" id="favorites">Favorites</a>
+			</div>
+			<div id="userview-content" class="row">
+				THIS IS WHERE THE USER'S CARDS GO!
+			</div>
+		</div>
+		<!-- END USER VIEW -->
+
+		<!-- BEGIN SEARCH VIEW -->
+		<div id="searchView" class="row">
 
 
 		</div>
+		<!-- END SEARCH VIEW -->
 	</div>
 	<!-- CONTAINER END -->
-
 </main>
 
 <!-- FOOTER START -->
@@ -80,6 +90,7 @@
 
 		<script src="lib/node_modules/jquery/dist/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
 		<script src="dist/app.js"></script>
 <!-- END SCRIPTS -->
 	</body>

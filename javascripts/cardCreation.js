@@ -8,13 +8,12 @@ var card = {
      $(cardMovieKeys).each((index, item) => {
        let thisMovie = movies[item];
        thisMovie.fbID = cardMovieKeys[index];
-       let content =
+       let movieContent =
        `<div class="col s4" id=card--${cardMovieKeys[index]}>
    				<div class="card sticky-action">
    					<div class="card-image waves-effect waves-block waves-light">
    					  <img class="activator icon${thisMovie.movieID}" src="${thisMovie.poster}">
    					</div>
-              <div id="bottomStuff">
        					<div class="card-content">
          					  <span class="card-title activator grey-text text-darken-4 icon${thisMovie.movieID} col s10">${thisMovie.title}</span>
                     <i class="material-icons right icon${thisMovie.movieID} col s2 activator">more_vert</i>
@@ -28,13 +27,20 @@ var card = {
        					<div class="card-action">
        						<a href="#" id=plus${thisMovie.movieID}><i class="material-icons" >add_circle</i></a>
        						<a href="#" id=watch${thisMovie.movieID}>Watched</a>
-                  <div class="rating">
-    									<span id="rating--5">☆</span><span id="rating--4">☆</span><span id="rating--3">☆</span><span id="rating--2">☆</span><span id="rating--1">☆</span>
-    							</div>
+                  <div id=rateYo${index}></div>
        					</div>
-              </div>
    				  </div>`;
-        $('.row').append(content);
+        $('.row').append(movieContent);
+        $(function (content) {
+           $(`#rateYo${index}`).rateYo({
+               fullStar: true
+           }).on("rateyo.set", function (e, data) {
+              // console.log("The rating is set to " + data.rating + "!");
+              let rating = data.rating;
+              // console.log("Movie Rating:", movieRating.rating);
+              handler.rateMovie(thisMovie, rating);
+              });
+           });
         handler.moreInfo(thisMovie);
         handler.watchList(thisMovie);
         handler.markWatched(thisMovie);

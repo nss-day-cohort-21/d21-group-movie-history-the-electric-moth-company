@@ -12,6 +12,7 @@ main {
 flex: 1 0 auto;
 }
 
+//using this on home page also
 .is-hidden {
 	display: none;
 }
@@ -51,23 +52,44 @@ img.activator {
   overflow: hidden !important;
 }
 
-#bottomStuff {
-  height: 225px !important;
+div.card-content {
+  
 }
 
-.card-content {
-  padding: 16px !important;
-}
-
-span.card-title.activator {
-  max-width: 280px !important;
-}
-
-div#bottomStuff > div.card-content {
-  height: 100px !important;
-}
+// #bottomStuff {
+//   height: 225px !important;
+// }
+//
+// .card-content {
+//   padding: 16px !important;
+// }
+//
+// span.card-title.activator {
+//   max-width: 280px !important;
+// }
+//
+// div#bottomStuff > div.card-content {
+//   height: 100px !important;
+// }
 //****************************************\\
 
 .card-reveal {
   background: rgba(255, 255, 255, 0.85) !important;
+}
+.container{
+  margin-top: 30px;
+}
+
+///////USER VIEW//////
+
+#search{
+  margin-right: 500px;
+}
+
+#my-movies{
+  padding-left: 180px;
+}
+
+#userview-content{
+  margin-top: 50px;
 }
