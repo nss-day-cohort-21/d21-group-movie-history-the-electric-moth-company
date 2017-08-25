@@ -37,13 +37,37 @@ flex: 1 0 auto;
 .rating > span:hover ~ span:before {
    content: "\2605";
    position: absolute;
-   left: 0; 
+   left: 0;
    color: gold;
 }
 
+.col.s4 {
+  height: 625px !important;
+  margin-bottom: 10px !important;
+}
+
+img.activator {
+  max-height: 400px !important;
+  overflow: hidden !important;
+}
+
+#bottomStuff {
+  height: 225px !important;
+}
+
+.card-content {
+  padding: 16px !important;
+}
+
+span.card-title.activator {
+  max-width: 280px !important;
+}
+
+div#bottomStuff > div.card-content {
+  height: 100px !important;
+}
 //****************************************\\
 
 .card-reveal {
   background: rgba(255, 255, 255, 0.85) !important;
 }
-

@@ -56,7 +56,7 @@ var handlers = {
           item.watched = true;
           fire.addToWatchList(item);
         } else {
-          fire.markWatched(item, uglyID);
+          fire.markWatched(uglyID);
         }
       });
     });
