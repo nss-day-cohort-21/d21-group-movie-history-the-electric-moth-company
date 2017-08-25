@@ -1,5 +1,7 @@
 'use strict';
+///------GET MOVIE INFO-----///
 
+///SEARCH RESULTS: Queries API for movie search. Not yet looking at user's movies
 var movie = {
   getSearch: function (userInput) {
     return new Promise((resolve, reject) => {
@@ -13,6 +15,7 @@ var movie = {
     });
   },
 
+///gets the main actors from the cast by taking ID from call above and QUERY cast on new API call
   getCredits: function(movieID) {
     return new Promise((resolve, reject) => {
       $.ajax({

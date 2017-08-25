@@ -7,7 +7,6 @@ var movieRating = {};
 
 /*-------Card building function
 Used to build cards for search and user view---*/
-
 var card = {
    createCard: function(movies) {
      let cardMovieKeys = Object.keys(movies);
@@ -36,10 +35,10 @@ var card = {
    					</div>
 						<div id=rateYo${index}></div>
    				  </div>`;
-						 
-        $('.row').append(movieContent);
-		
+				$('.row').append(movieContent);
+				
 				///function that creates the star rating///
+				///SEE README FOR MORE INFO////
 				$(function (content) {
 					$(`#rateYo${index}`).rateYo({
 						fullStar: true,
@@ -55,15 +54,7 @@ var card = {
         handler.moreInfo(thisMovie);
         handler.watchList(thisMovie);
         handler.markWatched(thisMovie);
-				
 	});
 	}
 };
-
-// getRating();
-function findRating() {
-	console.log("movieRating", movieRating.rating);
-}
-				
-
 module.exports = card;
