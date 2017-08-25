@@ -31,7 +31,6 @@ var card = {
    					</div>
    					<div class="card-action">
    						<a href="#" id=plus${thisMovie.movieID}><i class="material-icons" >add_circle</i></a>
-   						<a href="#" id=watch${thisMovie.movieID}>Watched</a>
    					</div>
 						<div id=rateYo${index} class=rateYo></div>
           </div>
@@ -58,7 +57,7 @@ var card = {
 					});
         handler.moreInfo(thisMovie);
         handler.watchList(thisMovie);
-        handler.markWatched(thisMovie);
+        // handler.markWatched(thisMovie);
 
 	});
 	}
