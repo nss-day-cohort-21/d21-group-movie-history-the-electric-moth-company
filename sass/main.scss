@@ -54,10 +54,32 @@ img.activator {
 
 div.card-content {
   height: 80px !important;
+  padding: 16px !important;
+}
+
+i.material-icons.right.activator {
+  padding-top: 15px !important;
 }
 
 i:hover {
   cursor: pointer !important;
+}
+
+.btn-floating {
+  position: absolute;
+  top: -17px;
+  left: -17px;
+  z-index: 9999 !important;
+}
+
+.rateYo {
+  margin: 0 auto;
+  padding-bottom: 10px !important;
+}
+
+span.card-title {
+  padding: 0 !important;
+  padding-top: 10px !important;
 }
 // #bottomStuff {
 //   height: 225px !important;

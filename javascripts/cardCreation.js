@@ -5,17 +5,16 @@ var handler = require('./handlers');
 var fire = require('./firebaseCalls');
 var movieRating = {};
 var card = {
-   createCard: function(movies, status) {
-     console.log("movieSearch", movies);
+   createCard: function(movies, searching, logState) {
 
      let cardMovieKeys = Object.keys(movies);
      $(cardMovieKeys).each((index, item) => {
        let thisMovie = movies[item];
        thisMovie.fbID = cardMovieKeys[index];
        let movieContent =
-       `<div class="col s4" id=card--${cardMovieKeys[index]}>
-   				<div class="card sticky-action">
-   					<div class="card-image waves-effect waves-block waves-light">
+       `<div class="col xl4 l6 m6 s12" id=card--${cardMovieKeys[index]}>
+   				<div class="card sticky-action" id=cardSticky${thisMovie.movieID}>
+   					<div class="card-image waves-effect waves-block waves-light" id=cardImage${thisMovie.movieID}>
    					  <img class="activator icon${thisMovie.movieID}" src="${thisMovie.poster}">
    					</div>
 
@@ -29,34 +28,41 @@ var card = {
               <span class="card-title grey-text text-darken-4">Cast</span>
               <p id=castReveal${thisMovie.movieID}></p>
    					</div>
-   					<div class="card-action">
-   						<a href="#" id=plus${thisMovie.movieID}><i class="material-icons" >add_circle</i></a>
-   					</div>
 						<div id=rateYo${index} class=rateYo></div>
           </div>
    			</div>`;
 
-        if (status === true) {
+        if (searching === true) {
           $('#searchView').append(movieContent);
-        } else if (status === false) {
+        } else if (searching === false) {
           $('#userview-content').append(movieContent);
         }
+
+        if (logState === true) {
+          console.log("thisMovie.rating", thisMovie.rating);
+          $(function (content) {
+  					$(`#rateYo${index}`).rateYo({
+  						fullStar: true,
+  						numStars: 10,
+              rating: thisMovie.rating/2
+  					})
+  					 .on("rateyo.set", function (e, data) {
+  									let rating = data.rating * 2;
+  									handler.rateMovie(thisMovie, rating);
+                });
+  					});
+        }
+        if (logState === true && thisMovie.inFB === true) {
+          $(`#cardSticky${thisMovie.movieID}`).append(`<a class="btn-floating btn-large waves-effect waves-light red" id=plus${thisMovie.movieID}><i class="material-icons">remove</i></a>`);
+
+        } else if (logState === true && thisMovie.inFB === false){
+          $(`#cardSticky${thisMovie.movieID}`).append(`<a class="btn-floating btn-large waves-effect waves-light green" id=plus${thisMovie.movieID}><i class="material-icons">add</i></a>`);
+          handler.watchList(thisMovie);
+        }
+
         // $('.row').append(movieContent);
-				$(function (content) {
-					$(`#rateYo${index}`).rateYo({
-						fullStar: true,
-						numStars: 10,
-            rating: thisMovie.rating/2
-					})
-					 .on("rateyo.set", function (e, data) {
-                  console.log("The rating is set to " + data.rating + "!");
-									let rating = data.rating * 2;
-									console.log("Movie Rating:", movieRating.rating);
-									handler.rateMovie(thisMovie, rating);
-              });
-					});
         handler.moreInfo(thisMovie);
-        handler.watchList(thisMovie);
+        // handler.watchList(thisMovie);
         // handler.markWatched(thisMovie);
 
 	});

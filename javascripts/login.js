@@ -22,7 +22,7 @@ $("#auth-btn").click(function() {
     fire.returnWatchList()
     .then((data) => {
       $('#userView').show();
-      card.createCard(data, false);
+      card.createCard(data, false, true);
     });
   });
 });
@@ -32,4 +32,7 @@ $("#logout").click(() => {
   user.logOut();
   $("#auth-btn").removeClass("is-hidden");
   $("#logout").addClass("is-hidden");
+  $('.userview-btns').hide();
+  $('#searchView').html('');
+  $('#userview-content').html('');
 });
