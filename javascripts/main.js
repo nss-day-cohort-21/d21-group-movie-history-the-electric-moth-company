@@ -43,6 +43,8 @@ $("#search").on('keyup', function (pushEnter) {
         var movieObject = {};
         for (var i = 0; i < results.length; i++) {
           let item = results[i];
+          console.log("release_date", item.release_date);
+          item.release_date = item.release_date.slice(0, item.release_date.indexOf('-'));
           if (item.poster_path === null) {
             movieObject[i] = {
               title: item.title,

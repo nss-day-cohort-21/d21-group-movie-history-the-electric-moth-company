@@ -12,7 +12,7 @@ var card = {
        let thisMovie = movies[item];
        thisMovie.fbID = cardMovieKeys[index];
        let movieContent =
-       `<div class="col xl4 l6 m6 s12" id=card--${cardMovieKeys[index]}>
+       `<div class="col xl4 l6 m6 s12" id=card--${thisMovie.movieID}>
    				<div class="card sticky-action" id=cardSticky${thisMovie.movieID}>
    					<div class="card-image waves-effect waves-block waves-light" id=cardImage${thisMovie.movieID}>
    					  <img class="activator icon${thisMovie.movieID}" src="${thisMovie.poster}">
@@ -24,6 +24,7 @@ var card = {
    					</div>
    					<div class="card-reveal" id=reveal${thisMovie.movieID}>
    					  <span class="card-title grey-text text-darken-4">Overview<i class="material-icons right">close</i></span>
+              <span>(${thisMovie.year})</span>
    					  <p>${thisMovie.overview}</p>
               <span class="card-title grey-text text-darken-4">Cast</span>
               <p id=castReveal${thisMovie.movieID}></p>
@@ -53,8 +54,8 @@ var card = {
   					});
         }
         if (logState === true && thisMovie.inFB === true) {
-          $(`#cardSticky${thisMovie.movieID}`).append(`<a class="btn-floating btn-large waves-effect waves-light red" id=plus${thisMovie.movieID}><i class="material-icons">remove</i></a>`);
-
+          $(`#cardSticky${thisMovie.movieID}`).append(`<a class="btn-floating btn-large waves-effect waves-light red" id=remove${thisMovie.movieID}><i class="material-icons">remove</i></a>`);
+          handler.removeMovie(thisMovie);
         } else if (logState === true && thisMovie.inFB === false){
           $(`#cardSticky${thisMovie.movieID}`).append(`<a class="btn-floating btn-large waves-effect waves-light green" id=plus${thisMovie.movieID}><i class="material-icons">add</i></a>`);
           handler.watchList(thisMovie);

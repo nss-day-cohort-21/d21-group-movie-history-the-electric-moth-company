@@ -37,6 +37,31 @@ var handlers = {
         if (movieIDArr.indexOf(item.movieID) === -1) {
           fire.addToWatchList(item);
         }
+        $(`#plus${item.movieID}`).remove();
+        $(`#cardSticky${item.movieID}`).append(`<a class="btn-floating btn-large waves-effect waves-light red" id=remove${item.movieID}><i class="material-icons">remove</i></a>`);
+        handlers.removeMovie(item);
+      });
+    });
+  },
+
+  removeMovie: function(item) {
+    $(`#remove${item.movieID}`).on('click', (e) => {
+      console.log("item", item);
+      e.preventDefault();
+      fire.returnWatchList()
+      .then((watchList) => {
+        let movieIDArr = [];
+        let uglyIDsArr = [];
+        let watchListKeys = Object.keys(watchList);
+        $(watchListKeys).each((windex, witem) => {
+          let thisMovie = watchList[witem];
+          movieIDArr.push(thisMovie.movieID);
+          uglyIDsArr.push(watchListKeys[windex]);
+        });
+        let movieToRemove = movieIDArr.indexOf(item.movieID);
+        let uglyID = uglyIDsArr[movieToRemove];
+        fire.removeFromFB(uglyID);
+        $(`#card--${item.movieID}`).remove();
       });
     });
   },
@@ -61,6 +86,9 @@ var handlers = {
         } else {
           fire.rateMovie(uglyID, rating);
         }
+        $(`#plus${item.movieID}`).remove();
+        $(`#cardSticky${item.movieID}`).append(`<a class="btn-floating btn-large waves-effect waves-light red" id=remove${item.movieID}><i class="material-icons">remove</i></a>`);
+        handlers.removeMovie(item);
       });
   },
 
