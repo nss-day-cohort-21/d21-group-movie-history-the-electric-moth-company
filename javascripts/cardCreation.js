@@ -6,7 +6,6 @@ var fire = require('./firebaseCalls');
 var movieRating = {};
 var card = {
    createCard: function(movies, searching, logState) {
-
      let cardMovieKeys = Object.keys(movies);
      $(cardMovieKeys).each((index, item) => {
        let thisMovie = movies[item];
@@ -40,7 +39,6 @@ var card = {
         }
 
         if (logState === true) {
-          console.log("thisMovie.rating", thisMovie.rating);
           $(function (content) {
   					$(`#rateYo${index}`).rateYo({
   						fullStar: true,
@@ -60,14 +58,9 @@ var card = {
           $(`#cardSticky${thisMovie.movieID}`).append(`<a class="btn-floating btn-large waves-effect waves-light green" id=plus${thisMovie.movieID}><i class="material-icons">add</i></a>`);
           handler.watchList(thisMovie);
         }
-
-        // $('.row').append(movieContent);
         handler.moreInfo(thisMovie);
-        // handler.watchList(thisMovie);
-        // handler.markWatched(thisMovie);
-
-	});
-	}
+	    });
+	 }
 };
 
 

@@ -11,6 +11,7 @@ $("#auth-btn").click(function() {
   // console.log("clicked auth");
   user.logInGoogle()
   .then((result) => {
+    $('#searchView').html('');
     // console.log("result from login", result.user.uid);
     // user = result.user.uid;
     user.setUser(result.user.uid);
