@@ -43,13 +43,30 @@ var card = {
   					$(`#rateYo${index}`).rateYo({
   						fullStar: true,
   						numStars: 10,
-              rating: thisMovie.rating/2
+              rating: thisMovie.rating/2,
+              starWidth: "25px",
+              spacing: "7px"
   					})
   					 .on("rateyo.set", function (e, data) {
   									let rating = data.rating * 2;
   									handler.rateMovie(thisMovie, rating);
                 });
   					});
+
+          $(window).resize(() => {
+            if ($('.col.xl4').width() < 275) {
+              $(`.rateYo`).rateYo("option", "starWidth", "17px");
+            } else if ($('.col.xl4').width() < 330) {
+              $(`.rateYo`).rateYo("option", "starWidth", "20px");
+            } else if ($('.col.xl4').width() >= 330) {
+              $(`.rateYo`).rateYo("option", "starWidth", "25px");
+            }
+            if ($(window).width() < 690) {
+              $('.toggleButton').css({'margin-bottom':'10px'});
+            } else if ($(window).width() >= 690){
+              $('.toggleButton').css({'margin-bottom':'0px'});
+            }
+          });
         }
         if (logState === true && thisMovie.inFB === true) {
           $(`#cardSticky${thisMovie.movieID}`).append(`<a class="btn-floating btn-large waves-effect waves-light red" id=remove${thisMovie.movieID}><i class="material-icons">remove</i></a>`);

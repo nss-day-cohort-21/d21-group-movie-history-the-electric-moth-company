@@ -71,7 +71,6 @@ i:hover {
   position: absolute;
   top: -17px;
   left: -17px;
-  z-index: 9999 !important;
 }
 
 .rateYo {
@@ -83,6 +82,14 @@ span.card-title.activator {
   padding: 0 !important;
   padding-top: 10px !important;
   padding-left: 5px !important;
+}
+
+div.userview-btns {
+  text-align: center !important;
+}
+
+div.userview-btns > a {
+  margin-left: 10px;
 }
 // #bottomStuff {
 //   height: 225px !important;
