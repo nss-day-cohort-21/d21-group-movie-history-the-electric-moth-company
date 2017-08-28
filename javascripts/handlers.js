@@ -36,33 +36,34 @@ var handlers = {
         if (movieIDArr.indexOf(item.movieID) === -1) {
           fire.addToWatchList(item);
         }
+        $(`#plus${item.movieID}`).remove();
+        $(`#cardSticky${item.movieID}`).append(`<a class="btn-floating btn-large waves-effect waves-light red" id=remove${item.movieID}><i class="material-icons">remove</i></a>`);
+        handlers.removeMovie(item);
       });
     });
   },
 
-///adds movies to the watched list. If the movie is in the wishlist, adds to watched
-  // markWatched: function(item) {
-  //   $(`#watch${item.movieID}`).on("click", (e) => {
-  //     e.preventDefault();
-  //     fire.returnWatchList()
-  //     .then((watchList) => {
-  //       let uglyID;
-  //       let watchListKeys = Object.keys(watchList);
-  //       $(watchListKeys).each((windex, witem) => {
-  //         let thisMovie = watchList[witem];
-  //         if (thisMovie.movieID === item.movieID) {
-  //           uglyID = watchListKeys[windex];
-  //         }
-  //       });
-  //       if (uglyID === undefined) {
-  //         item.watched = true;
-  //         fire.addToWatchList(item);
-  //       } else {
-  //         fire.markWatched(uglyID);
-  //       }
-  //     });
-  //   });
-  // },
+  removeMovie: function(item) {
+    $(`#remove${item.movieID}`).on('click', (e) => {
+      console.log("item", item);
+      e.preventDefault();
+      fire.returnWatchList()
+      .then((watchList) => {
+        let movieIDArr = [];
+        let uglyIDsArr = [];
+        let watchListKeys = Object.keys(watchList);
+        $(watchListKeys).each((windex, witem) => {
+          let thisMovie = watchList[witem];
+          movieIDArr.push(thisMovie.movieID);
+          uglyIDsArr.push(watchListKeys[windex]);
+        });
+        let movieToRemove = movieIDArr.indexOf(item.movieID);
+        let uglyID = uglyIDsArr[movieToRemove];
+        fire.removeFromFB(uglyID);
+        $(`#card--${item.movieID}`).remove();
+      });
+    });
+  },
 
   ///submits rating to FB
   rateMovie: function(item, rating){
@@ -85,6 +86,9 @@ var handlers = {
         } else {
           fire.rateMovie(uglyID, rating);
         }
+        $(`#plus${item.movieID}`).remove();
+        $(`#cardSticky${item.movieID}`).append(`<a class="btn-floating btn-large waves-effect waves-light red" id=remove${item.movieID}><i class="material-icons">remove</i></a>`);
+        handlers.removeMovie(item);
       });
   },
 

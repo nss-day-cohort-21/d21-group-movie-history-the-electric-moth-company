@@ -48,16 +48,58 @@ flex: 1 0 auto;
 }
 
 img.activator {
-  max-height: 400px !important;
+  height: 400px !important;
   overflow: hidden !important;
 }
 
 div.card-content {
   height: 80px !important;
+  padding: 16px !important;
+  padding-right: 0 !important;
+  padding-left: 24px !important;
+}
+
+i.material-icons.right.activator {
+  padding-top: 15px !important;
 }
 
 i:hover {
   cursor: pointer !important;
+}
+
+.btn-floating {
+  position: absolute;
+  top: -17px;
+  left: -17px;
+}
+
+.rateYo {
+  margin: 0 auto;
+  padding-bottom: 10px !important;
+}
+
+span.card-title.activator {
+  padding: 0 !important;
+  padding-top: 10px !important;
+  padding-left: 5px !important;
+}
+
+div.userview-btns {
+  text-align: center !important;
+}
+
+div.userview-btns > a {
+  margin-left: 10px;
+}
+
+.toggleButton {
+  margin-bottom: 10px !important;
+}
+
+.brand-logo {
+  position: absolute;
+  margin-right: 1px;
+  left: 5px;
 }
 // #bottomStuff {
 //   height: 225px !important;
@@ -96,3 +138,20 @@ i:hover {
 #userview-content{
   margin-top: 50px;
 }
+
+#dropdownMobile {
+  width: 250px !important;
+}
+
+#dropdownMobile > li {
+  text-align: right !important;
+}
+
+#mobileSearch {
+  padding-left: 10px !important;
+}
+
+// ***********************************
+// ***** Some Media Query Stuff ******
+//
+// The stuff in cardCreation.js
