@@ -1,5 +1,6 @@
 'use strict';
 
+///-------REQUIRES----------///
 var fire = require('./firebaseCalls');
 var movie = require('./getMovies');
 var card = require('./cardCreation');
@@ -8,8 +9,10 @@ var login = require('./login');
 var handlers = require('./handlers');
 var userView = require('./userView.js');
 
+///-------Global movie object----------///
+var movieObject = {};
 
-
+///-------User interaction with search on enter----------///
 users.logOut();
 
 $(".search").on('keyup', function (pushEnter) {
@@ -30,7 +33,6 @@ $(".search").on('keyup', function (pushEnter) {
     if (users.getUser() === null) {
       movie.getSearch(userVal)
       .then((results) => {
-        var movieObject = {};
         for (var i = 0; i < results.length; i++) {
           let item = results[i];
           item.release_date = item.release_date.slice(0, item.release_date.indexOf('-'));

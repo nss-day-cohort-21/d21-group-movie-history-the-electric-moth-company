@@ -4,6 +4,9 @@ var movie = require('./getMovies');
 var handler = require('./handlers');
 var fire = require('./firebaseCalls');
 var movieRating = {};
+
+/*-------Card building function
+Used to build cards for search and user view---*/
 var card = {
    createCard: function(movies, searching, logState) {
      let cardMovieKeys = Object.keys(movies);
@@ -17,7 +20,7 @@ var card = {
    					  <img class="activator icon${thisMovie.movieID}" src="${thisMovie.poster}">
    					</div>
 
-   					<div class="card-content">
+                       <div class="card-content">
               <span class="card-title activator grey-text text-darken-4 icon${thisMovie.movieID} col s10 truncate">${thisMovie.title}</span>
               <i class="material-icons right icon${thisMovie.movieID} col s2 activator">more_vert</i>
    					</div>
@@ -30,7 +33,7 @@ var card = {
    					</div>
 						<div id=rateYo${index} class=rateYo></div>
           </div>
-   			</div>`;
+               </div>`;
 
         if (searching === true) {
           $('#searchView').append(movieContent);
