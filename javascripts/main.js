@@ -1,5 +1,6 @@
 'use strict';
 
+///-------REQUIRES----------///
 var fire = require('./firebaseCalls');
 var movie = require('./getMovies');
 var card = require('./cardCreation');
@@ -8,8 +9,10 @@ var login = require('./login');
 var handlers = require('./handlers');
 var userView = require('./userView.js');
 
+///-------Global movie object----------///
 var movieObject = {};
 
+///-------User interaction with search on enter----------///
 users.logOut();
 
 $("#search").on('keyup', function (pushEnter) {

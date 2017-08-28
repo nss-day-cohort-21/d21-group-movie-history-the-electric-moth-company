@@ -3,9 +3,8 @@
 var movie = require('./getMovies');
 var fire = require('./firebaseCalls');
 
-
-
-
+////---HANDLES USER INTERACTIONS---///
+//Makes call to get cast from API
 var handlers = {
   moreInfo: function(item) {
     $(`.icon${item.movieID}`).on("click", (e) => {
@@ -22,7 +21,7 @@ var handlers = {
       }
     });
   },
-
+///adds movie to watchlist
   watchList: function(item) {
     $(`#plus${item.movieID}`).on("click", (e) => {
       e.preventDefault();
@@ -41,6 +40,7 @@ var handlers = {
     });
   },
 
+///adds movies to the watched list. If the movie is in the wishlist, adds to watched
   // markWatched: function(item) {
   //   $(`#watch${item.movieID}`).on("click", (e) => {
   //     e.preventDefault();
@@ -64,6 +64,7 @@ var handlers = {
   //   });
   // },
 
+  ///submits rating to FB
   rateMovie: function(item, rating){
       fire.returnWatchList()
       .then((watchList) => {
