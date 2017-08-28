@@ -48,7 +48,7 @@ flex: 1 0 auto;
 }
 
 img.activator {
-  max-height: 400px !important;
+  height: 400px !important;
   overflow: hidden !important;
 }
 
@@ -91,6 +91,16 @@ div.userview-btns {
 div.userview-btns > a {
   margin-left: 10px;
 }
+
+.toggleButton {
+  margin-bottom: 10px !important;
+}
+
+.brand-logo {
+  position: absolute;
+  margin-right: 1px;
+  left: 5px;
+}
 // #bottomStuff {
 //   height: 225px !important;
 // }
@@ -128,3 +138,20 @@ div.userview-btns > a {
 #userview-content{
   margin-top: 50px;
 }
+
+#dropdownMobile {
+  width: 250px !important;
+}
+
+#dropdownMobile > li {
+  text-align: right !important;
+}
+
+#mobileSearch {
+  padding-left: 10px !important;
+}
+
+// ***********************************
+// ***** Some Media Query Stuff ******
+//
+// The stuff in cardCreation.js

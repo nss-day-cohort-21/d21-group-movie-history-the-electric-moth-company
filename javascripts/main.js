@@ -12,14 +12,20 @@ var userView = require('./userView.js');
 
 users.logOut();
 
-$("#search").on('keyup', function (pushEnter) {
+$(".search").on('keyup', function (pushEnter) {
   if (pushEnter.which === 13) {
+    $('.dropdown-button').dropdown('close');
     $('#searchView').html('');
     $('#userview-content').html('');
     $('.row').empty();
     $("#userView-content").hide();
     $("#searchView").show();
-    let userVal = $("#search").val();
+    let userVal;
+    if ($(window).width() < 993){
+      userVal = $("#mobileSearch").val();
+    } else if ($(window).width() >= 993) {
+      userVal = $("#search").val();
+    }
     let logState;
     if (users.getUser() === null) {
       movie.getSearch(userVal)
@@ -27,7 +33,6 @@ $("#search").on('keyup', function (pushEnter) {
         var movieObject = {};
         for (var i = 0; i < results.length; i++) {
           let item = results[i];
-          console.log("release_date", item.release_date);
           item.release_date = item.release_date.slice(0, item.release_date.indexOf('-'));
           if (item.poster_path === null) {
             movieObject[i] = {
@@ -68,13 +73,11 @@ $("#search").on('keyup', function (pushEnter) {
           myMovieIDsArr.push(eachMovie.movieID);
           myMovieRatingsArr.push(eachMovie.rating);
         });
-        console.log("myMovieIDsArr", myMovieIDsArr);
         movie.getSearch(userVal)
         .then((results) => {
           var movieObject = {};
           for (var i = 0; i < results.length; i++) {
             let item = results[i];
-            console.log("release_date", item.release_date);
             item.release_date = item.release_date.slice(0, item.release_date.indexOf('-'));
             if (item.poster_path === null) {
               movieObject[i] = {
@@ -109,6 +112,6 @@ $("#search").on('keyup', function (pushEnter) {
         });
       });
     }
-    $("#search").val("");
+    $(".search").val("");
   }
 });

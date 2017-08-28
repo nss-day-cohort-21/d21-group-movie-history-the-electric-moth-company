@@ -44,7 +44,7 @@ var card = {
   						fullStar: true,
   						numStars: 10,
               rating: thisMovie.rating/2,
-              starWidth: "25px",
+              starWidth: "20px",
               spacing: "7px"
   					})
   					 .on("rateyo.set", function (e, data) {
@@ -61,11 +61,21 @@ var card = {
             } else if ($('.col.xl4').width() >= 330) {
               $(`.rateYo`).rateYo("option", "starWidth", "25px");
             }
+
+            // Below to media queries. Above needs to stay
+
             if ($(window).width() < 690) {
               $('.toggleButton').css({'margin-bottom':'10px'});
-            } else if ($(window).width() >= 690){
+            } else if ($(window).width() < 993){
               $('.toggleButton').css({'margin-bottom':'0px'});
+            } else if ($(window).width() < 1100) {
+              $('#my-movies').css({'padding-left':'80px'});
+            } else if ($(window).width() < 1470) {
+              $('#my-movies').css({'padding-left':'180px'});
+            } else if ($(window).width() >= 1470) {
+              $('#my-movies').css({'padding-left':'280px'});
             }
+
           });
         }
         if (logState === true && thisMovie.inFB === true) {

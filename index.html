@@ -19,23 +19,25 @@
 
 		<nav>
 				<div class="nav-wrapper">
-					<a href="#!" class="brand-logo">Logo</a>
 				  <ul class="right hide-on-med-and-down">
-						<li><input id="search" type="search" placeholder="Search For Movies"></li>
-						<li><a href="#" id="my-movies">My Movies</a></li>
-						<li id="auth-btn"><a href="#" title="">Sign In</a></li>
-						<li id="logout" class="is-hidden"><a href="#" title="">Logout</a></li>
+						<a href="#!" class="brand-logo left">Logo</a>
+						<li><input id="search" type="search" placeholder="Search For Movies" class="search"></li>
+						<li><a href="#" id="my-movies" class="my-movies">My Movies</a></li>
+						<li id="auth-btn" class="auth-btn"><a href="#" title="">Sign In</a></li>
+						<li id="logout" class="is-hidden logout"><a href="#" title="">Logout</a></li>
 				  </ul>
+					<i class='dropdown-button material-icons show-on-medium-and-down hide-on-med-and-up right' data-beloworigin="true" href='#' data-activates='dropdownMobile'>menu</i>
+					<a href="#!" class="brand-logo show-on-medium-and-down hide-on-med-and-up left">Logo</a>
+					<ul id="dropdownMobile" class="right nav__links dropdown-content">
+						<li class="liMobileSearch" onclick="event.stopPropagation();"><input id="mobileSearch" type="search" placeholder="Search For Movies" class="search"></li>
+						<li class="is-hidden myMoviesMobile"><a href="#" class="my-movies">My Movies</a></li>
+						<li class="auth-btn"><a href="#" title="">Sign In</a></li>
+						<li class="is-hidden logout"><a href="#" title="">Logout</a></li>
+					</ul>
 				</div>
-			  </nav>
 
 
-			<div class="nav-wrapper">
 				<!-- <a href="#!" class="brand-logo center">Logo</a> -->
-				<ul id="nav-mobile" class="left nav__links">
-
-				</ul>
-			</div>
 		</nav>
 				  <!-- NAVIGATION END -->
 <main>
@@ -50,7 +52,7 @@
 				<a class="waves-effect waves-light btn toggleButton" id="favorites">Favorites</a>
 			</div>
 			<div id="userview-content" class="row">
-				<!-- THIS IS WHERE THE USER'S CARDS GO! -->
+
 			</div>
 		</div>
 		<!-- END USER VIEW -->
